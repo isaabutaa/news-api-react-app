@@ -19,7 +19,6 @@ export default function HomePage() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(apiKey)
         getData()
         setForVariable({searchTerm: inputData.searchKeyword})
         setInputData({searchKeyword: ""})
@@ -27,7 +26,7 @@ export default function HomePage() {
     }
 
     function getData() {
-        Axios.get(`https://newsapi.org/v2/everything?q=${inputData.searchKeyword}&apiKey=${apiKey}`)
+        Axios.get(`https://newsapi.org/v2/everything?q=${inputData.searchKeyword}&language=en&pageSize=25&apiKey=${apiKey}`)
             .then(response => {
                 const articles = response.data.articles
                 setSearchResults([...articles])

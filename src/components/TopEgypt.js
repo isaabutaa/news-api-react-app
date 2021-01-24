@@ -2,28 +2,28 @@ import React, {useState, useEffect} from "react"
 import Axios from "axios"
 require("dotenv").config()
 
-export default function TopBbcNews() {
-    const [bbcNewsArticles, setBbcNews] = useState([])
+export default function TopEgypt() {
+    const [arabicArticles, setArabicArticles] = useState([])
 
     const apiKey = process.env.REACT_APP_API_KEY
 
     useEffect(() => {
         let mounted = true
         if(mounted) {
-            getBbcNews()
+            getArabicNews()
         }
         return () => mounted = false
-    } , [])
+    }, [])
 
-    function getBbcNews() {
-        Axios.get(`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${apiKey}`)
+    function getArabicNews() {
+        Axios.get(`https://newsapi.org/v2/top-headlines?language=ar&pageSize=25&apiKey=${apiKey}`)
             .then(response => {
-                const bbcArticles = response.data.articles
-                setBbcNews([...bbcArticles])
+                const articles = response.data.articles
+                setArabicArticles([...articles])
             })
     }
 
-    const newsArticles = bbcNewsArticles.map((article, i) => {
+    const arabicResults = arabicArticles.map((article, i) => {
         return (
             <div className="article" key={article.title + i.toString()}>
                 <img style={{width: "300px", height: "auto"}} src={article.urlToImage} alt=""/>
@@ -36,7 +36,7 @@ export default function TopBbcNews() {
 
     return (
         <div className="article-container">
-            {newsArticles}
+            {arabicResults}
         </div>
     )
 }
