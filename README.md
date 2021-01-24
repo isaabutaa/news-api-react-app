@@ -1,7 +1,9 @@
 # Welcome to Newssource!
 
 This was my very first personal React project at V School. It's a simple application that makes HTTP GET requests to [NewsAPI](https://newsapi.org).
-**Disclaimer:** NewsAPI allows me to use their API and make requests locally from a development environment for free, however, that is no longer the case for the hosted site. Still, using this API was good practice.
+**Disclaimer:** NewsAPI allows me to use their API and make requests locally from a development environment for free, however, that is no longer the case for the hosted site. Still, using this API was good practice. 
+
+You can still visit the hosted site [here](https://news-source.netlify.app/).
 
 ### The Homepage
 
